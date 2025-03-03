@@ -5,7 +5,7 @@ import { Role } from 'src/schemas/role.schema';
 import { Permission } from 'src/schemas/permission.schema';
 
 @Injectable()
-export class RolesService {
+export class RoleService {
   constructor(
     @InjectModel(Role.name) private roleModel: Model<Role>,
     @InjectModel(Permission.name) private permissionModel: Model<Permission>,

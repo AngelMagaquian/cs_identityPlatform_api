@@ -4,7 +4,7 @@ import { Model } from 'mongoose';
 import { Permission } from 'src/schemas/permission.schema';
 
 @Injectable()
-export class PermissionsService {
+export class PermissionService {
   constructor(@InjectModel(Permission.name) private permissionModel: Model<Permission>) {}
 
   async createPermission(module: string, read: boolean, create: boolean, update: boolean) {
