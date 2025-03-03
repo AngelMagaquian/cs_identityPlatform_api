@@ -20,7 +20,7 @@ export class UsersService {
     }
   }
 
-  async createUser(username: string, pass: string, role: string) {
+  async createUser(username: string, email:string, pass: string, role: string) {
     try {
       const hashedPassword = await bcrypt.hash(pass, 10);
       const user = new this.userModel({ username, pass: hashedPassword, role });
