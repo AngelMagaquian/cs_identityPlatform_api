@@ -15,9 +15,11 @@ export class JwtPermissionsGuard implements CanActivate {
 
     const request = context.switchToHttp().getRequest();
     const user = request.user;
-    if (!user) throw new ForbiddenException('Not authenticated');
 
-    const hasAccess = await this.usersService.hasPermission(user.id, requiredPermission.module, requiredPermission.action);
+    if (!user || !user._id) throw new ForbiddenException('Not authenticated');
+
+    const hasAccess = await this.usersService.hasPermission(user._id, requiredPermission.module, requiredPermission.action);
+    
     if (!hasAccess) throw new ForbiddenException('Access denied');
 
     return true;

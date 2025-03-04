@@ -8,7 +8,7 @@ export class RoleController {
 
     @Post('create')
     async createRole(@Body() body) {
-        const {name, permissionIds} = body;
-        return this.RoleService.createRole(name, permissionIds);
+        const {name, permissions} = body;
+        return this.RoleService.createRole(name, permissions);
     }
 }
